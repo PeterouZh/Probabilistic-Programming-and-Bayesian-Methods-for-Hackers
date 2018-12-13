@@ -1,4 +1,5 @@
-find Prologue Chapter* -name "*.ipynb" | grep -v "PyMC2" | xargs ipython3 nbconvert --to pdf --template article
+find Prologue Chapter* -name "*.ipynb" | grep -v "PyMC2" | xargs jupyter nbconvert --to pdf --template article
 
 # merge all files:
-pdfjoin Prologue.pdf Ch*.pdf DontOverfit.pdf MachineLearning.pdf
+pdf_file=$(find Prologue Chapter* -name "*.pdf")
+pdfjoin "$pdf_file" 
